@@ -1,0 +1,13 @@
+.header{
+    display: flex;
+    height: 53px;
+    align-items: center;
+    background: transparent url('../../assets/header-pattern.svg') 0% 0%  padding-box;
+    mix-blend-mode: overlay;
+    background-color: #25313F;
+    border-bottom: 3px solid #31B9E4;
+}
+
+.header-logo{
+    padding-left: 24px;
+}
