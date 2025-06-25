@@ -17,6 +17,10 @@ export class LoginCard {
 
   selectedState: string = '';
   selectedDistrict: string = '';
+  username: string = '';
+  password: string = '';
+  rememberMe: boolean = false;
+  schoolType: string = '';
   
   ngOnInit(): void {
     this.stateDataService.getStatesAndDistrict().subscribe(data => {
@@ -28,5 +32,21 @@ export class LoginCard {
   onStateChange(): void {
     this.districts = this.stateDistrictData[this.selectedState] || [];
     this.selectedDistrict = '';
+  }
+
+  onSubmit() {
+    if(!this.schoolType || !this.selectedDistrict || !this.selectedState || !this.username || !this.password){
+      console.log('fill all required fields');
+    } else {
+      console.log({
+        schoolType: this.schoolType,
+        state: this.selectedState,
+        district: this.selectedDistrict,
+        username: this.username,
+        password: this.password,
+        rememberMe: this.rememberMe,
+      })
+    }
+    
   }
 }

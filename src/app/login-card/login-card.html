@@ -11,35 +11,52 @@
       </div>
 
       <div class="school-options-container">
-        <input type="radio" name="school-type" id="district" checked />
+        <input
+          type="radio"
+          name="school-type"
+          id="district"
+          checked
+          [(ngModel)]="schoolType"
+          value="district"
+        />
         <label for="district">
           <span class="icon">
             <img
               class="on-icon"
               src="assets/icons/radio-button-on.svg"
               alt="On"
+              [class.hidden]="schoolType !== 'district'"
             />
             <img
               class="off-icon"
               src="assets/icons/radio-button-off.svg"
               alt="Off"
+              [class.hidden]="schoolType === 'district'"
             />
           </span>
           District
         </label>
 
-        <input type="radio" name="school-type" id="independent" />
+        <input
+          type="radio"
+          name="school-type"
+          id="independent"
+          [(ngModel)]="schoolType"
+          value="independent"
+        />
         <label for="independent">
           <span class="icon">
             <img
               class="on-icon"
               src="assets/icons/radio-button-on.svg"
               alt="On"
+              [class.hidden]="schoolType !== 'independent'"
             />
             <img
               class="off-icon"
               src="assets/icons/radio-button-off.svg"
               alt="Off"
+              [class.hidden]="schoolType === 'independent'"
             />
           </span>
           Independent School
@@ -68,7 +85,7 @@
       </div>
 
       <div class="district-container">
-        <label for="district-select" class="district-label">State*</label>
+        <label for="district-select" class="district-label">District*</label>
 
         <div class="custom-select-wrapper">
           <select
@@ -80,16 +97,8 @@
             <option value="">Select a district</option>
 
             @for(district of districts; track district){
-              <option value="district">{{ district }}</option>
+            <option [value]="district">{{ district }}</option>
             }
-
-            <!-- <option value="alabama-shcool-district" selected>
-              Alabama School District
-            </option>
-            <option value="alaska">Alaska</option>
-            <option value="arizona">Arizona</option>
-            <option value="arkansas">Arkansas</option> -->
-            <!-- Add more states as needed -->
           </select>
           <img src="assets/icons/arrow-down.svg" alt="On" />
           <!-- Down arrow ▼ -->
@@ -102,6 +111,7 @@
           id="username-input"
           class="username-input"
           placeholder="Username/Email ID*"
+          [(ngModel)]="username"
         />
         <div class="username-bottom">
           <a href="#" class="forgot-username">FORGOT USERNAME?</a>
@@ -115,6 +125,7 @@
             id="password-input"
             class="password-input"
             placeholder="Password*"
+            [(ngModel)]="password"
           />
           <img
             src="assets/icons/preview.svg"
@@ -126,13 +137,23 @@
       </div>
 
       <div class="remember-me-container">
-        <input type="checkbox" id="remember" class="remember-checkbox" />
+        <input
+          type="checkbox"
+          id="remember"
+          class="remember-checkbox"
+          [(ngModel)]="rememberMe"
+        />
         <label for="remember" class="custom-checkbox-label">
           <span class="checkbox-icon">
-            <img src="assets/icons/checkbox-checked.svg" class="checked-icon" />
+            <img
+              src="assets/icons/checkbox-checked.svg"
+              class="checked-icon"
+              [class.hidden]="!rememberMe"
+            />
             <img
               src="assets/icons/checkbox-unchecked.svg"
               class="unchecked-icon"
+              [class.hidden]="rememberMe"
             />
           </span>
           Remember Me
@@ -141,9 +162,7 @@
     </div>
 
     <div class="login-button-container">
-      <div class="login-button">
-        <div>LOG IN</div>
-      </div>
+      <button class="login-button" (click)="onSubmit()">LOG IN</button>
     </div>
   </div>
 </div>
