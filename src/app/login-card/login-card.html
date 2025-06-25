@@ -59,9 +59,8 @@
             <option value="">Select a state</option>
 
             @for (state of states; track state) {
-              <option [value]="state">{{ state }}</option>
+            <option [value]="state">{{ state }}</option>
             }
-            
           </select>
           <img src="assets/icons/arrow-down.svg" alt="On" />
           <!-- Down arrow ▼ -->
@@ -72,14 +71,24 @@
         <label for="district-select" class="district-label">State*</label>
 
         <div class="custom-select-wrapper">
-          <select id="district-select" class="district-select">
+          <select
+            id="district-select"
+            class="district-select"
+            [(ngModel)]="selectedDistrict"
+            [disabled]="!districts.length"
+          >
             <option value="">Select a district</option>
-            <option value="alabama-shcool-district" selected>
+
+            @for(district of districts; track district){
+              <option value="district">{{ district }}</option>
+            }
+
+            <!-- <option value="alabama-shcool-district" selected>
               Alabama School District
             </option>
             <option value="alaska">Alaska</option>
             <option value="arizona">Arizona</option>
-            <option value="arkansas">Arkansas</option>
+            <option value="arkansas">Arkansas</option> -->
             <!-- Add more states as needed -->
           </select>
           <img src="assets/icons/arrow-down.svg" alt="On" />
