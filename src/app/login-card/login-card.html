@@ -1,1 +1,140 @@
-<p>login-card works!</p>
+<div class="main">
+  <div class="login">
+    <div class="login-form">
+      <div class="top-spacer"></div>
+
+      <div class="login-header-container">
+        <!-- back arrow -->
+        <img src="assets/icons/back.svg" alt="" class="back-arrow" />
+
+        <div class="login-header">Log in with Quantum</div>
+      </div>
+
+      <div class="school-options-container">
+        <input type="radio" name="school-type" id="district" checked />
+        <label for="district">
+          <span class="icon">
+            <img
+              class="on-icon"
+              src="assets/icons/radio-button-on.svg"
+              alt="On"
+            />
+            <img
+              class="off-icon"
+              src="assets/icons/radio-button-off.svg"
+              alt="Off"
+            />
+          </span>
+          District
+        </label>
+
+        <input type="radio" name="school-type" id="independent" />
+        <label for="independent">
+          <span class="icon">
+            <img
+              class="on-icon"
+              src="assets/icons/radio-button-on.svg"
+              alt="On"
+            />
+            <img
+              class="off-icon"
+              src="assets/icons/radio-button-off.svg"
+              alt="Off"
+            />
+          </span>
+          Independent School
+        </label>
+      </div>
+
+      <div class="state-container">
+        <label for="state-select" class="state-label">State*</label>
+
+        <div class="custom-select-wrapper">
+          <select
+            id="state-select"
+            class="state-select"
+            [(ngModel)]="selectedState"
+            (change)="onStateChange()"
+          >
+            <option value="">Select a state</option>
+
+            @for (state of states; track state) {
+              <option [value]="state">{{ state }}</option>
+            }
+            
+          </select>
+          <img src="assets/icons/arrow-down.svg" alt="On" />
+          <!-- Down arrow ▼ -->
+        </div>
+      </div>
+
+      <div class="district-container">
+        <label for="district-select" class="district-label">State*</label>
+
+        <div class="custom-select-wrapper">
+          <select id="district-select" class="district-select">
+            <option value="">Select a district</option>
+            <option value="alabama-shcool-district" selected>
+              Alabama School District
+            </option>
+            <option value="alaska">Alaska</option>
+            <option value="arizona">Arizona</option>
+            <option value="arkansas">Arkansas</option>
+            <!-- Add more states as needed -->
+          </select>
+          <img src="assets/icons/arrow-down.svg" alt="On" />
+          <!-- Down arrow ▼ -->
+        </div>
+      </div>
+
+      <div class="username-container">
+        <input
+          type="text"
+          id="username-input"
+          class="username-input"
+          placeholder="Username/Email ID*"
+        />
+        <div class="username-bottom">
+          <a href="#" class="forgot-username">FORGOT USERNAME?</a>
+        </div>
+      </div>
+
+      <div class="password-container">
+        <div class="password-wrapper">
+          <input
+            type="password"
+            id="password-input"
+            class="password-input"
+            placeholder="Password*"
+          />
+          <img
+            src="assets/icons/preview.svg"
+            alt="Toggle Password Visibility"
+            class="toggle-password-icon"
+          />
+        </div>
+        <a href="#" class="forgot-password">FORGOT PASSWORD?</a>
+      </div>
+
+      <div class="remember-me-container">
+        <input type="checkbox" id="remember" class="remember-checkbox" />
+        <label for="remember" class="custom-checkbox-label">
+          <span class="checkbox-icon">
+            <img src="assets/icons/checkbox-checked.svg" class="checked-icon" />
+            <img
+              src="assets/icons/checkbox-unchecked.svg"
+              class="unchecked-icon"
+            />
+          </span>
+          Remember Me
+        </label>
+      </div>
+    </div>
+
+    <div class="login-button-container">
+      <div class="login-button">
+        <div>LOG IN</div>
+      </div>
+    </div>
+  </div>
+</div>
